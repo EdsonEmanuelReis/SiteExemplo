@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class Post {
 
     @Id
-    String ID;
+    String id;
     @Relationship(type = "CRIOU", direction = Relationship.Direction.INCOMING)
     private Usuario autor;
     private int curtidas;
