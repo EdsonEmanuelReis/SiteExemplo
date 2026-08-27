@@ -9,10 +9,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-
 public interface UsuarioRepository extends Neo4jRepository<Usuario, String> {
 
     @Query("MATCH (b {id: $idA})-[:SEGUE]->(c), (r {id: $idB})-[:SEGUE]->(c) RETURN c")
     List<Usuario> encontrarAmigosEmComum(@Param("idA") String idA, @Param("idB") String idB);
-
 }

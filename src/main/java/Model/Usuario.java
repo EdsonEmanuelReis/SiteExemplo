@@ -9,10 +9,12 @@ import org.springframework.data.neo4j.core.schema.Relationship;
 
 import java.util.ArrayList;
 import java.util.List;
+import lombok.NoArgsConstructor;
 
 @Node
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 public class Usuario {
 
