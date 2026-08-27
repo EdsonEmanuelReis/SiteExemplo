@@ -2,25 +2,30 @@ package Service;
 
 import Model.Post;
 import Repository.PostRepository;
+import Repository.UsuarioRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class PostService {
 
-    PostRepository postRepository;
+    private final PostRepository postRepository;
 
     public boolean salvarPost (Post post){
         if (postRepository.existsById(post.getId())) return false;
         if (post.getCurtidas()<0) return false;
-        if (post.getAutor().getNome().isBlank()) return false;
+        if (post.getAutor() == null) return false;
 
         postRepository.save(post);
         return true;
     }
 
-    public boolean deletePost (Post post){
-        if (!postRepository.existsById(post.getId())) return false;
-        postRepository.delete(post);
+    public boolean deletePost (String id){
+        if (!postRepository.existsById(id)) return false;
+        postRepository.deleteById(id);
         return true;
     }
 
