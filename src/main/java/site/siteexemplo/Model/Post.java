@@ -1,4 +1,4 @@
-package Model;
+package site.siteexemplo.Model;
 
 import lombok.Getter;
 import org.springframework.data.neo4j.core.schema.Id;

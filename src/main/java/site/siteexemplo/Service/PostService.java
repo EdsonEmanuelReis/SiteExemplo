@@ -1,7 +1,7 @@
-package Service;
+package site.siteexemplo.Service;
 
-import Model.Post;
-import Repository.PostRepository;
+import site.siteexemplo.Model.Post;
+import site.siteexemplo.Repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

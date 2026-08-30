@@ -1,4 +1,4 @@
-package Model;
+package site.siteexemplo.Model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

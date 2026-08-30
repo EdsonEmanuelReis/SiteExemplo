@@ -1,11 +1,10 @@
-package Controller;
+package site.siteexemplo.Controller;
 
-import Model.Usuario;
-import Service.UsuarioService;
+import site.siteexemplo.Model.Usuario;
+import site.siteexemplo.Service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,7 +1,7 @@
-package Service;
+package site.siteexemplo.Service;
 
-import Model.Usuario;
-import Repository.UsuarioRepository;
+import site.siteexemplo.Model.Usuario;
+import site.siteexemplo.Repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -42,11 +42,12 @@ public class UsuarioService {
         if (idSeguido.equals(idSeguindo)) return false;
 
         Usuario seguido = usuarioRepository.findById(idSeguido)
-                .orElseThrow();
+                .orElse(null);
 
         Usuario seguindo = usuarioRepository.findById(idSeguindo)
-                .orElseThrow();
+                .orElse(null);
 
+        if (seguido == null || seguindo == null) return false;
         if (seguindo.getSeguindo().contains(seguido)) return false;
 
         seguindo.getSeguindo().add(seguido);

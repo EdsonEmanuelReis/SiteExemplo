@@ -1,8 +1,8 @@
-package Controller;
+package site.siteexemplo.Controller;
 
 import org.springframework.web.bind.annotation.RestController;
-import Model.Post;
-import Service.PostService;
+import site.siteexemplo.Model.Post;
+import site.siteexemplo.Service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

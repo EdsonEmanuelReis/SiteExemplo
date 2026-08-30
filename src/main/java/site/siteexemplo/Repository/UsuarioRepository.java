@@ -1,6 +1,6 @@
-package Repository;
+package site.siteexemplo.Repository;
 
-import Model.Usuario;
+import site.siteexemplo.Model.Usuario;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.neo4j.repository.query.Query;
 import org.springframework.data.repository.query.Param;
