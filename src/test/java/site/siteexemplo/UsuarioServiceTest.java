@@ -45,6 +45,9 @@ public class UsuarioServiceTest {
     void naodevePermitirSeguirDuasvezes (){ //Teste para não permitir seguir duas vezes.
         Usuario ana = new Usuario("1","Teste","Ana","Bioteste",new ArrayList<>(),new ArrayList<>());
         Usuario bruno = new Usuario("2","Teste","Bruno","Bioteste",new ArrayList<>(), List.of(ana));
+        when(usuarioRepository.findById("2")).thenReturn(Optional.of(bruno));
+        when(usuarioRepository.findById("1")).thenReturn(Optional.of(ana));
+
         boolean resultado = usuarioService.seguir("1","2");
         assertFalse(resultado);
     }
@@ -61,7 +64,4 @@ public class UsuarioServiceTest {
         assertTrue(ana.getSeguindo().contains(bruno));
         verify(usuarioRepository).save(ana);
     }
-
-
-
 }

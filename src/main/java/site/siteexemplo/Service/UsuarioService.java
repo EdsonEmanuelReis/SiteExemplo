@@ -13,6 +13,7 @@ public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
 
+    //Metodo salvar
     public boolean salvarUsu(Usuario usuario) {
         if (usuario.getId() == null || usuario.getId().isBlank()) return false;
         if (usuario.getFotoPerfil() == null || usuario.getFotoPerfil().isBlank()) return false;
@@ -23,6 +24,7 @@ public class UsuarioService {
         return true;
     }
 
+    //Metodo excluir Usuário
     public boolean excluirUsu(String id) {
         if (!usuarioRepository.existsById(id)) return false;
 
@@ -30,14 +32,17 @@ public class UsuarioService {
         return true;
     }
 
+    //Metodo buscar Usuário.
     public Usuario buscarUsu(String id) {
         return usuarioRepository.findById(id).orElse(null);
     }
 
+    //Metodo listar
     public List<Usuario> listarUsuarios() {
         return usuarioRepository.findAll();
     }
 
+    //Metodo seguir usuario.
     public boolean seguir(String idSeguido, String idSeguindo) {
         if (idSeguido.equals(idSeguindo)) return false; //Usuario não pode seguir ele mesmo.
 
