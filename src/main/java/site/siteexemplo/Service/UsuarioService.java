@@ -39,16 +39,16 @@ public class UsuarioService {
     }
 
     public boolean seguir(String idSeguido, String idSeguindo) {
-        if (idSeguido.equals(idSeguindo)) return false;
+        if (idSeguido.equals(idSeguindo)) return false; //Usuario não pode seguir ele mesmo.
 
-        Usuario seguido = usuarioRepository.findById(idSeguido)
+        Usuario seguido = usuarioRepository.findById(idSeguido) //Procura o seguido, caso não ache entrega null.
                 .orElse(null);
 
-        Usuario seguindo = usuarioRepository.findById(idSeguindo)
+        Usuario seguindo = usuarioRepository.findById(idSeguindo) //Procura o seguido, caso não ache entrega null.
                 .orElse(null);
 
-        if (seguido == null || seguindo == null) return false;
-        if (seguindo.getSeguindo().contains(seguido)) return false;
+        if (seguido == null || seguindo == null) return false; //Seguido e Seguindo não podem ser null para realizar a ação.
+        if (seguindo.getSeguindo().contains(seguido)) return false; //Não pode seguir a pessoa duas vezes.
 
         seguindo.getSeguindo().add(seguido);
         usuarioRepository.save(seguindo);
